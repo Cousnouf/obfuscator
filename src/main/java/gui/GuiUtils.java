@@ -42,7 +42,7 @@ public class GuiUtils {
 	
 	public static final String INFORMATION_PICTURE = "information.png";
 	public static final String ABOUT_PICTURE = "volatileProject.png";
-	public static final String IMAGE_FOLDER = "images/images/";
+	public static final String IMAGE_FOLDER = "images/";
 	
 	public static AbstractButton createToolBarButton(String iconName) {
 		JButton button = new JButton(readImageIcon(iconName));

@@ -19,7 +19,7 @@ import java.util.MissingResourceException;
 import java.util.ResourceBundle;
 
 public class MessageUtils {
-	private static final String CONFIG_DIR = "config/";
+	private static final String CONFIG_DIR = "";
 	private static final String MESSAGE_BASENAME = "message";
 	private static final String MESSAGE_PATH = CONFIG_DIR + MESSAGE_BASENAME;
 	private static ResourceBundle resourceBundle = ResourceBundle.getBundle(MESSAGE_PATH);
