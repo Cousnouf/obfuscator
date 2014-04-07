@@ -95,9 +95,8 @@ public class StringAnalyser implements IStringAnalyser{
 			String replacementString = toReplace.replace(appearance
 					.getOutOfContextName(), appearance.getVariableRelated()
 					.getReplacementName());
-			String inContextWrapperToReplace = content;
-			String inContextWrapperReplacement = inContextWrapperToReplace.replace(
-					toReplace, replacementString);
+            String inContextWrapperReplacement = content.replace(
+                toReplace, replacementString);
 			
 			return inContextWrapperReplacement;
 		} else {

@@ -36,14 +36,16 @@ public class FileObfuscationStructure {
 	public void setFileContexts(List<ParsingContext> fileContexts) {
 		this.fileContexts = fileContexts;
 	}
-	/**
+
+    /**
 	 * 
 	 * @return the variable appearances for the file.
 	 */
 	public List<VariableAppearance> getFileVariablesAppearances() {
 		return fileVariablesAppearances;
 	}
-	/**
+
+    /**
 	 * 
 	 * @param fileVariablesAppearances
 	 */

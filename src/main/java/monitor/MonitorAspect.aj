@@ -168,7 +168,7 @@ public aspect MonitorAspect {
 		return (Object)fileName;		
 	}
 	
-	before(): call(* common.FileUtils.copyFile(..)) && inObfuscator() {
+	before(): call(* common.McbcFileUtils.copyFile(..)) && inObfuscator() {
 		if (step == 3) {
 			String fileName = ((File)thisJoinPoint.getArgs()[1]).getPath();
 			progressPanel.incrementValue();

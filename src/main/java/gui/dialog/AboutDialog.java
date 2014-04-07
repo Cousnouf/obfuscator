@@ -9,6 +9,7 @@ package gui.dialog;
  * 
  */
 
+import common.McbcFileUtils;
 import gui.GuiUtils;
 import gui.MainFrame;
 
@@ -24,8 +25,6 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
-
-import common.FileUtils;
 
 @SuppressWarnings("serial")
 public class AboutDialog extends Dialog {	
@@ -79,7 +78,7 @@ public class AboutDialog extends Dialog {
 	
 	private String getHelpText () {
 		URL url = this.getClass().getClassLoader().getResource("config/about.txt");
-		return FileUtils.getFileContent(url);
+		return McbcFileUtils.getFileContent(url);
 	}
 
 	@Override

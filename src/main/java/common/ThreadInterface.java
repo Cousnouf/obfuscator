@@ -32,10 +32,9 @@ public class ThreadInterface {
 			objectToInvokeFrom[order] = objectFrom;
 			methodToInvoke[order] = objectFrom.getClass().getMethod(methodName, parameterTypes);
 			argsToInvokeWith[order] = args;
-		} catch (SecurityException e) {
-		} catch (NoSuchMethodException e) {
+		} catch (SecurityException | NoSuchMethodException e) {
 		}
-	}
+    }
 	
 	public void runMethods (String threadName) {
 		Thread thread = new Thread(new Runnable() {
@@ -44,11 +43,9 @@ public class ThreadInterface {
 					for (int i = 0; i < methodToInvoke.length; i++) {
 						methodToInvoke[i].invoke(objectToInvokeFrom[i], argsToInvokeWith[i]);					
 					}
-				} catch (IllegalArgumentException e) {
-				} catch (IllegalAccessException e) {
-				} catch (InvocationTargetException e) {
+				} catch (IllegalArgumentException | IllegalAccessException | InvocationTargetException e) {
 				}
-			}
+            }
 		}, threadName);
 		thread.start();
 	}

@@ -17,7 +17,7 @@ import obfuscation.FileObfuscationStructure;
 import parsing.PhpParserConstant;
 
 public class VariableUtils {
-	/*
+	/**
 	 * Create the Variable Object list, referencing only once each variable and indexing
 	 * the appearences.
 	 * Then, the Variable Object list is sorted from the longer variable name to the shorter

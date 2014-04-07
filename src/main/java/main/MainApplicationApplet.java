@@ -1,5 +1,6 @@
 package main;
 
+import common.McbcFileUtils;
 import gui.GuiUtils;
 import gui.IMainContainer;
 import gui.ProgressPanel;
@@ -28,7 +29,6 @@ import javax.swing.JToolBar;
 import obfuscation.Obfuscator;
 import variable.Variable;
 
-import common.FileUtils;
 import common.MessageUtils;
 import common.ThreadInterface;
 
@@ -184,7 +184,7 @@ public class MainApplicationApplet extends Applet implements IMainContainer {
 		if (variableList != null) {
 			String fileName = saveFileDialog();
 			if (fileName != null) {
-				int fileSize = FileUtils.saveVariableList(fileName, variableList);			
+				int fileSize = McbcFileUtils.saveVariableList(fileName, variableList);
 				MessageDialog.displayMessageDialog(new JFrame(), MessageUtils.getMessage("INFORMATION_DIALOG"), MessageUtils.getMessage("FILE_SAVED", fileName, fileSize));				
 			}
 		} else {
@@ -245,8 +245,8 @@ public class MainApplicationApplet extends Applet implements IMainContainer {
 			setActionButtonsEnabled(false);
 			tabbedPanel.setSelectedComponent(variablePanel);
 			ThreadInterface threadInterface = new ThreadInterface(2);
-			threadInterface.setMethod(0, obfuscator, "obfuscateProject", (Class<Object>[])null, (Object[])null);
-			threadInterface.setMethod(1, this, "displayDestinationFolder", (Class<Object>[])null, (Object[])null);
+			threadInterface.setMethod(0, obfuscator, "obfuscateProject", null, null);
+			threadInterface.setMethod(1, this, "displayDestinationFolder", null, null);
 			threadInterface.runMethods("getProjectVariables Thread");
 		} else {
 			tabbedPanel.setSelectedComponent(projectPanel);
@@ -265,8 +265,8 @@ public class MainApplicationApplet extends Applet implements IMainContainer {
 			tabbedPanel.setSelectedComponent(variablePanel);
 			setActionButtonsEnabled(false);
 			ThreadInterface threadInterface = new ThreadInterface(2);
-			threadInterface.setMethod(0, obfuscator, "parseAndGetVariables", (Class<Object>[])null, (Object[])null);
-			threadInterface.setMethod(1, this, "displayProjectVariables", (Class<Object>[])null, (Object[])null);
+			threadInterface.setMethod(0, obfuscator, "parseAndGetVariables", null, null);
+			threadInterface.setMethod(1, this, "displayProjectVariables", null, null);
 			threadInterface.runMethods("getProjectVariables Thread");
 		} else {
 			tabbedPanel.setSelectedComponent(projectPanel);
@@ -320,11 +320,11 @@ public class MainApplicationApplet extends Applet implements IMainContainer {
         button.setToolTipText(MessageUtils.getMessage("TOOLTIP_HOME"));
         button.addActionListener(buildHomeActionListener());
         toolBar.add(button);
-        button = GuiUtils.createToolBarButton(GuiUtils.SAVE_ICON);;
+        button = GuiUtils.createToolBarButton(GuiUtils.SAVE_ICON);
         button.setToolTipText(MessageUtils.getMessage("TOOLTIP_SAVE"));
         button.addActionListener(buildSaveActionListener());
         toolBar.add(button);
-        button = GuiUtils.createToolBarButton(GuiUtils.OPEN_ICON);;
+        button = GuiUtils.createToolBarButton(GuiUtils.OPEN_ICON);
         button.setToolTipText(MessageUtils.getMessage("TOOLTIP_OPEN"));
         toolBar.add(button);
         toolBar.addSeparator();

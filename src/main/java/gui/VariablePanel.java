@@ -143,7 +143,7 @@ class VariableTableModel extends AbstractTableModel {
 		} else if (column == 1) {
 			return variable.getReplacementName();
 		} else if (column == 2) {
-			return new Boolean(variable.isObfuscable());
+			return variable.isObfuscable();
 		}
 		return null;
 	}

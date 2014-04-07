@@ -65,7 +65,7 @@ public class Variable implements Comparable<Variable> {
 		Random random = new Random();
 		//random.setSeed(characterNumber);
 		random.setSeed(random.nextLong());
-		StringBuffer result = new StringBuffer();
+		StringBuilder result = new StringBuilder();
 		for (int i = 0; i < characterNumber; i++) {
 			result.append(RANDOM_STRING.charAt(random.nextInt(RANDOM_STRING.length())));
 		}

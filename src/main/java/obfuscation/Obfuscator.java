@@ -15,6 +15,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import common.Constants;
+import common.McbcFileUtils;
 import parsing.ParsingContext;
 import parsing.ParsingContextHandler;
 import parsing.ParsingContextType;
@@ -23,8 +25,6 @@ import variable.GlobalContext;
 import variable.Variable;
 import variable.VariableAppearance;
 import variable.VariableUtils;
-
-import common.FileUtils;
 
 public class Obfuscator  {
 	private String sourceDir = null;
@@ -198,7 +198,7 @@ public class Obfuscator  {
 	}
 	
 	public void getFileFromSourceDir () {
-		projectFiles = FileUtils.getFilesFromDir(sourceDir, FileUtils.EXCLUSION_FILE_PATTERN );			
+		projectFiles = McbcFileUtils.getFilesFromDir(sourceDir, Constants.EXCLUSION_FILE_PATTERN);
 		projectFileObfuscationStructureList = null;
 		projectVariableList = null;
 	}
@@ -222,19 +222,19 @@ public class Obfuscator  {
 			File obfuscatedFile = new File(destinationDir + "\\"
 					+ structure.getFileName());
 			obfuscatedContent = handler.replaceVariables(structure, commentRemover, whiteSpacesRemover);
-			fileSizeTransfert = FileUtils.putFileContent(obfuscatedFile, obfuscatedContent);
+			fileSizeTransfert = McbcFileUtils.putFileContent(obfuscatedFile, obfuscatedContent);
 			totalSizeTransfert += fileSizeTransfert;
 			numberOfFiles++;
 		}
 		if (!copyOnlySource) {
 			for (File file : projectFiles) {
-				String fileExtension = FileUtils.getFilenameExtension(file.getName());
-				if (!FileUtils.PHP_EXTENSION_TABLE.contains(fileExtension) && file.isFile()) {
+				String fileExtension = McbcFileUtils.getFilenameExtension(file.getName());
+				if (!Constants.PHP_EXTENSION_TABLE.contains(fileExtension) && file.isFile()) {
 					File newFile = new File(destinationDir
 							+ "\\"
 							+ file.getAbsolutePath().substring(
 									sourceDir.length()));
-					fileSizeTransfert = FileUtils.copyFile(file, newFile);
+					fileSizeTransfert = McbcFileUtils.copyFile(file, newFile);
 					numberOfFiles++;
 					totalSizeTransfert += fileSizeTransfert;
 				}
@@ -252,9 +252,9 @@ public class Obfuscator  {
 		List<File> codeFiles = new ArrayList<File>();
 		
 		for (File file : projectFiles) {
-			String fileExtension = FileUtils.getFilenameExtension(file.getName());
-			if (FileUtils.PHP_EXTENSION_TABLE.contains(fileExtension) ||
-				fileExtension.equals(FileUtils.JAVA_FILE_EXTENSION)) {
+			String fileExtension = McbcFileUtils.getFilenameExtension(file.getName());
+			if (Constants.PHP_EXTENSION_TABLE.contains(fileExtension) ||
+				fileExtension.equals(Constants.JAVA_FILE_EXTENSION)) {
 				codeFiles.add(file);
 			}
 		}
@@ -263,20 +263,20 @@ public class Obfuscator  {
 			File obfuscatedFile = new File(destinationDir + "\\"
 					+ structure.getFileName());
 			obfuscatedContent = handler.replaceVariables(structure, commentRemover, whiteSpacesRemover);
-			fileSizeTransfert = FileUtils.putFileContent(obfuscatedFile, obfuscatedContent);
+			fileSizeTransfert = McbcFileUtils.putFileContent(obfuscatedFile, obfuscatedContent);
 			totalSizeTransfert += fileSizeTransfert;
 			numberOfFiles++;
 		}
 		
 		if (!copyOnlySource) {
 			for (File file : projectFiles) {
-				String fileExtension = FileUtils.getFilenameExtension(file.getName());
-				if (!FileUtils.PHP_EXTENSION_TABLE.contains(fileExtension) && file.isFile()) {
+				String fileExtension = McbcFileUtils.getFilenameExtension(file.getName());
+				if (!Constants.PHP_EXTENSION_TABLE.contains(fileExtension) && file.isFile()) {
 					File newFile = new File(destinationDir
 							+ "\\"
 							+ file.getAbsolutePath().substring(
 									sourceDir.length()));
-					fileSizeTransfert = FileUtils.copyFile(file, newFile);
+					fileSizeTransfert = McbcFileUtils.copyFile(file, newFile);
 					numberOfFiles++;
 					totalSizeTransfert += fileSizeTransfert;
 				}
@@ -301,14 +301,14 @@ public class Obfuscator  {
 
 		for (File file : projectFiles) {
 			if (file.isFile()) {
-				String fileExtension = FileUtils.getFilenameExtension(file.getName());
+				String fileExtension = McbcFileUtils.getFilenameExtension(file.getName());
 
-				if (FileUtils.PHP_EXTENSION_TABLE.contains(fileExtension)) {
+				if (Constants.PHP_EXTENSION_TABLE.contains(fileExtension)) {
 					FileObfuscationStructure structure = new FileObfuscationStructure();
-					String fileContent = FileUtils.getFileContent(file);
+					String fileContent = McbcFileUtils.getFileContent(file);
 
 					List<ParsingContext> fileContexts = new ArrayList<ParsingContext>();
-					if (!fileExtension.equals(FileUtils.JAVA_FILE_EXTENSION)) {
+					if (!fileExtension.equals(Constants.JAVA_FILE_EXTENSION)) {
 						fileContexts = parser.parsePhpContent(fileContent);						
 					} else {
 						ParsingContext javaScriptParsingContext = 

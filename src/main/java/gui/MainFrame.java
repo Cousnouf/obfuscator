@@ -10,6 +10,7 @@ package gui;
  * 
  */
 
+import common.McbcFileUtils;
 import gui.dialog.AboutDialog;
 import gui.dialog.MessageDialog;
 import gui.dialog.SettingsDialog;
@@ -38,7 +39,6 @@ import javax.swing.KeyStroke;
 import obfuscation.Obfuscator;
 import variable.Variable;
 
-import common.FileUtils;
 import common.MessageUtils;
 import common.ThreadInterface;
 
@@ -251,7 +251,7 @@ public class MainFrame extends JFrame implements IMainContainer {
 		if (variableList != null) {
 			String fileName = saveFileDialog();
 			if (fileName != null) {
-				int fileSize = FileUtils.saveVariableList(fileName, variableList);			
+				int fileSize = McbcFileUtils.saveVariableList(fileName, variableList);
 				MessageDialog.displayMessageDialog(this, "INFORMATION_DIALOG", "FILE_SAVED", fileName, fileSize);				
 			}
 		} else {
@@ -262,7 +262,7 @@ public class MainFrame extends JFrame implements IMainContainer {
 	protected void loadFile() {
 		String fileName = openFileDialog();
 		if (fileName != null) {
-			List<Variable> variableList = FileUtils.loadVariableList(fileName);
+			List<Variable> variableList = McbcFileUtils.loadVariableList(fileName);
 			obfuscator.setProjectVariableList(variableList);
 			variablePanel.repaintVariableList(variableList);	
 			tabbedPanel.setSelectedComponent(variablePanel);
