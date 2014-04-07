@@ -77,7 +77,7 @@ public class AboutDialog extends Dialog {
 	}
 	
 	private String getHelpText () {
-		URL url = this.getClass().getClassLoader().getResource("config/about.txt");
+		URL url = this.getClass().getClassLoader().getResource("about.txt");
 		return McbcFileUtils.getFileContent(url);
 	}
 

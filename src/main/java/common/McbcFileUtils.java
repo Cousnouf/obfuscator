@@ -14,7 +14,6 @@ package common;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.InputStream;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -128,15 +127,7 @@ public class McbcFileUtils {
 
 	public static String getFileContent(URL url) {
 		try {
-			InputStream inputStream = url.openStream();
-			int byteInt = inputStream.read();
-			StringBuilder content = new StringBuilder();
-			while (byteInt >= 0) {
-				content.append((char)byteInt);
-				byteInt = inputStream.read();
-			}
-			inputStream.close();
-			return content.toString();
+            return FileUtils.readFileToString(new File(url.getFile()));
 		} catch (IOException e) {
             logger.error(e.getMessage(), e);
 			return null;
