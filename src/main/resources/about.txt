@@ -1,0 +1,30 @@
+Marc Cappelletti - september 2008
+The Volatile Project
+www.volatileproject.org
+
+all rights reserved
+
+IMPORTANT NOTES CONCERNING VOLATILE PHP OBFUSCATOR.
+
+1.0 Flexibility
+The first reason I decided to create this obfuscation application was because the actual obfuscators don't detect: 
+
+-anchors variables (<a href="file.php?myVariable=Value">) 
+-input variables (<input type="text" name="myVariable">)
+-javascript variables (if (myForm.myInputVariable.value == aNumber) {}) 
+
+This last case appears when you check a form with many input variables (which will be "normal" php variables after sending) with a Javascript.
+
+All of that is because many programmers doesn't have the REGISTER_GLOBALS on off, so they didn't necessarily used the $_GET and $_POST arrays. In any case, this obfuscator covers a wide range of cases and should provide a good solution.
+
+2.0 Php Standards
+Volatile Php Obfuscator supports lasts php code standards. Please be careful on how you wrote your project's code.
+
+3.0 Non-obfuscation examples
+Actually, I don't have examples which don't work with VP PHP Obfuscator. Anyway, some variable usages, especially with Javascript, could have been forgotten. So don't hesitate to contact me in order to fix and complete the application.
+
+Feel free to contact me to notify bugs or special cases that should be treated.
+
+marc.cappelletti@gmail.com
+
+Marc Cappelletti
