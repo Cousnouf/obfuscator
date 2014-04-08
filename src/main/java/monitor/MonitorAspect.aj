@@ -1,15 +1,5 @@
 package monitor;
 
-/**
- * @Author Marc Cappelletti
- * @Version 1.0
- * @Date December 2008
- * @Purpose
- * Aspect that catches event in order to display the relevant data in the 
- * ProgressPanel. 
- * 
- */
-
 import gui.ProgressPanel;
 
 import java.io.File;
@@ -18,6 +8,15 @@ import obfuscation.Obfuscator;
 
 import common.MessageUtils;
 
+/**
+ * @Author Marc Cappelletti
+ * @Version 1.0
+ * @Date December 2008
+ * @Purpose
+ * Aspect that catches event in order to display the relevant data in the
+ * ProgressPanel.
+ *
+ */
 public aspect MonitorAspect {
 	private static String VARIABLE_DETECTION = null;
 	private static String PROJECT_OBFUSCATION = null;

@@ -9,7 +9,6 @@ package parsing;
  * Obfuscator object and the "workers" StringAnalyzers. 
  * 
  */
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -141,7 +140,7 @@ public class ParsingContextHandler {
 			FileObfuscationStructure structure, boolean firstScan) {
 		List<VariableAppearance> result = new ArrayList<VariableAppearance>();
 		for (IStringAnalyser analyzer : stringAnalysers) {
-			if (firstScan || (!firstScan && analyzer.isTwoScansAnalyzer())) {
+			if (firstScan || (analyzer.isTwoScansAnalyzer())) {
 				if (analyzer.isOutOfContextAnalysis()) {
 					String content = structure.getFileContent(); 
 					ParsingContext entireFileContext =

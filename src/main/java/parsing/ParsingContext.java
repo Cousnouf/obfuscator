@@ -9,7 +9,6 @@ package parsing;
  * Text context it is (Text, Php, Comment, etc.) 
  * 
  */
-
 public class ParsingContext {
 	private ParsingContextType context;
 	private String content;

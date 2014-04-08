@@ -8,7 +8,6 @@ package parsing;
  * Defines the types of TEXT contexts available. 
  * 
  */
-
 public enum ParsingContextType {
 	Php, Text, PhpText, PhpDynamicText, LineComment, Comment, JavaScript, EntireFile
 }

@@ -1,16 +1,5 @@
 package obfuscation;
 
-/**
- * @Author Marc Cappelletti
- * @Version 1.0
- * @Date December 2008
- * @See Obfuscator.java
- * @Purpose
- * This structure contains the content of a file, its name, a list of 
- * ParsingContexts and a list of VariableAppearances. 
- * 
- */
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -18,6 +7,16 @@ import java.util.List;
 import parsing.ParsingContext;
 import variable.VariableAppearance;
 
+/**
+ * @Author Marc Cappelletti
+ * @Version 1.0
+ * @Date December 2008
+ * @See Obfuscator.java
+ * @Purpose
+ * This structure contains the content of a file, its name, a list of
+ * ParsingContexts and a list of VariableAppearances.
+ *
+ */
 public class FileObfuscationStructure {
 	private String fileContent;
 	private String fileName;
@@ -38,7 +37,6 @@ public class FileObfuscationStructure {
 	}
 
     /**
-	 * 
 	 * @return the variable appearances for the file.
 	 */
 	public List<VariableAppearance> getFileVariablesAppearances() {
@@ -46,7 +44,6 @@ public class FileObfuscationStructure {
 	}
 
     /**
-	 * 
 	 * @param fileVariablesAppearances
 	 */
 	public void addFileVariablesAppearances(List<VariableAppearance> fileVariablesAppearances) {

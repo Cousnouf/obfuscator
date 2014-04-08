@@ -1,15 +1,5 @@
 package obfuscation;
 
-/**
- * @Author Marc Cappelletti
- * @Version 1.0
- * @Date December 2008
- * @Purpose
- * Class that gather all the elements in order to obfuscate properly a project 
- * located in a specified folder. 
- * 
- */
-
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -26,6 +16,16 @@ import variable.Variable;
 import variable.VariableAppearance;
 import variable.VariableUtils;
 
+
+/**
+ * @Author Marc Cappelletti
+ * @Version 1.0
+ * @Date December 2008
+ * @Purpose
+ * Class that gather all the elements in order to obfuscate properly a project
+ * located in a specified folder.
+ *
+ */
 public class Obfuscator  {
 	private String sourceDir = null;
 	private String destinationDir = null;
